@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.snakesandladders.deluxe",
+    "sha256_cert_fingerprints": [ED:CE:20:61:C7:48:C3:38:7F:D6:AD:D7:F4:97:25:21:7E:59:3A:22:32:AB:79:9C:1F:88:AE:ED:CF:81:90:D1"]
+  }
+}]
