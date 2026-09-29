@@ -2,15 +2,19 @@
 # Runs anywhere Docker runs (Render, Fly, a VPS). Bun + socket.io + Prisma.
 FROM oven/bun:1
 
+# Set the working directory to the repo root
 WORKDIR /app
 
-# Dependencies first so Docker can cache this layer
-COPY package.json bun.lock ./
+# Copy the entire repository into the container
+COPY . .
+
+# Move into the service folder
+WORKDIR /app/mini-services/online
+
+# Install dependencies
 RUN bun install
 
-# App code and database schema
-COPY prisma ./prisma
-COPY index.ts ./
+# Generate Prisma client
 RUN mkdir -p db && bunx prisma generate
 
 # Render injects PORT; index.ts already honors it
